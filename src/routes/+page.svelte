@@ -89,7 +89,7 @@
         <hr style="opacity: 0;">
         <div id="contact">
             <img src="github-icon.png" alt="" />
-            <a href="#right-div">repositório</a>
+            <a href="https://github.com/Devs097518/json_conversor">repositório</a>
         </div>
         
     </footer>
