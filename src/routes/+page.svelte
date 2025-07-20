@@ -1,6 +1,6 @@
 <script lang="ts">
     let fileContent = "";
-    let mostrar:number = 0;
+    let mostrar: number = 0;
 
     // o objeto com conteúdo do .txt
     let objeto: { [key: string]: string } = {
@@ -15,16 +15,55 @@
         const input = event.target as HTMLInputElement;
         const file = input.files?.[0];
         if (file) {
-
             if (file.name.endsWith(".txt")) {
                 const reader = new FileReader();
                 reader.onload = (e) => {
                     fileContent = (e.target as FileReader).result as string;
-                    objeto.conteudo = fileContent;
-                    parajson = JSON.stringify(objeto);
+
+                    objeto.conteudo = fileContent; // <--
+                    
+                    console.log(objeto); // <-- para ver o objeto no console
+
+
+
+                    let linhas: string[] = objeto.conteudo.split("\r\n");
+                    let tratado: string[][] = []; // é uma array de array de strings [['a'],['b'],['c']]
+
+                    /*cada linha é colocada uma lista ordenada*/
+                    for (let i = 0; i < linhas.length; i++) {
+                        let get = linhas[i].split(",");
+                        tratado.push(get);
+                    }
+
+                    type Pessoa = {
+                        nome: string;
+                        idade: number;
+                        id: string;
+                    };
+
+                    //contém o objeto formatado 
+                    let conjunto: Pessoa[] = [];
+
+                    /*para cada linha, se é colocado num objeto*/
+                    for (let i_b = 0; i_b < tratado.length; i_b++) {
+                        construir(tratado[i_b]);
+                    }
+
+                    /*pega a linha e a bota num objeto anônimo*/
+                    function construir(vetor: (string | number)[]): void {
+                        const obj: Pessoa = {
+                            nome: vetor[0] as string,
+                            idade: Number(vetor[1]) as number,
+                            id: vetor[2] as string,
+                        };
+                        conjunto.push(obj);
+                    }
+
+
+                    parajson = JSON.stringify(conjunto, null, 2); // <-- conteúdo do JSON formatado
                     mostrar = 1;
                 };
-                
+
                 reader.readAsText(file);
             } else {
                 alert("Por favor, insira um arquivo tipo .txt");
@@ -68,7 +107,6 @@
         </div>
     </div>
     <div id="right-div">
-
         <div id="baixar" style="opacity: {mostrar};">
             <p>baixe o seu arquivo convertido para json</p>
             <a href="#right-div" on:click={downloadJson}>aqui</a>
@@ -159,7 +197,7 @@
         align-items: center;
     }
 
-    #baixar{
+    #baixar {
         text-align: center;
     }
 
