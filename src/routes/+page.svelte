@@ -21,10 +21,8 @@
                     fileContent = (e.target as FileReader).result as string;
 
                     objeto.conteudo = fileContent; // <--
-                    
+
                     console.log(objeto); // <-- para ver o objeto no console
-
-
 
                     let linhas: string[] = objeto.conteudo.split("\r\n");
                     let tratado: string[][] = []; // é uma array de array de strings [['a'],['b'],['c']]
@@ -41,7 +39,7 @@
                         id: string;
                     };
 
-                    //contém o objeto formatado 
+                    //contém o objeto formatado
                     let conjunto: Pessoa[] = [];
 
                     /*para cada linha, se é colocado num objeto*/
@@ -58,7 +56,6 @@
                         };
                         conjunto.push(obj);
                     }
-
 
                     parajson = JSON.stringify(conjunto, null, 2); // <-- conteúdo do JSON formatado
                     mostrar = 1;
@@ -95,14 +92,8 @@
         </button>
         <div class="info">
             <h2>Whats .txt?</h2>
-            <p>
-                A ".text archive" typically refers to a collection of text-based
-                files that have been stored together for later access or
-                preservation. This could be a collection of text messages, log
-                files, or other types of documents where the primary content is
-                textual information. It's essentially a way to organize and
-                store these files in a single location, often for the purpose of
-                long-term retention or for easier retrieval.
+            <p class="text-align">
+               O formato TXT refere-se a arquivos de texto simples, que são documentos de texto com formatação mínima ou nenhuma. Esses arquivos podem ser abertos e lidos pela maioria dos editores de texto e sistemas operacionais. 
             </p>
         </div>
     </div>
@@ -113,16 +104,16 @@
         </div>
 
         <div class="info">
-            <h2>Whats .json?</h2>
-            <p>
-                JSON (JavaScript Object Notation) is an open standard file
-                format and data interchange format that uses human-readable text
-                to store and transmit data objects consisting of name–value
-                pairs and arrays (or other serializable values). It is a
-                commonly used data format with diverse uses in electronic data
-                interchange, including that of web applications with servers.
+            <h2>O que é .json?</h2>
+            <p class="text-align">
+                JSON é um formato de dados comumente usado por desenvolvedores web para transferir dados entre um servidor e uma aplicação da web. Os desenvolvedores geralmente preferem o JSON porque ele simplifica a troca de dados entre diferentes tecnologias.
             </p>
         </div>
+    </div>
+    <div id="formato">
+        <h1>Qual a formatação usada?</h1>
+        <p id="info-formato"> atual formatação pega o arquivo de texto em que cada linha cada informação está separada por vírgulas, o programa identifica cada linha e cada item de sua linha e o coloca em um objeto anônimo com sua chave e respectivo valor. No caso atual cada objeto possui 3 chaves(nome, idade e id). No final, esse conteúdo é colocado no arquivo .json já formatado.</p>
+        <img src="exemplo_formato.png" id="exemplo_formato" alt="">
     </div>
 
     <footer>
@@ -182,6 +173,10 @@
         border: 3px dotted black;
     }
 
+    .text-align{
+        text-align: center;
+    }
+
     #the-input {
         opacity: 0;
         padding: 3em;
@@ -199,6 +194,25 @@
 
     #baixar {
         text-align: center;
+    }
+
+    #formato{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+    }
+
+    #exemplo_formato{
+        padding-top: 4em;
+        width: 80%;
+        margin: auto;
+    }
+
+    #info-formato{
+        width: 90%;
+        text-align: center;
+        margin: auto;
     }
 
     footer {
