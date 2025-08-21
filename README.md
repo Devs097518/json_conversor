@@ -1,30 +1,52 @@
-# 🚀 json_conversor
+# ⭐JSON_CONVERSOR
+    O JSON_CONVERSOR é um projeto que tem como objetivo formular arquivos `.json` , arquivos 
+    muito muito úteis no backend para acessar e distribuir dados , de uma maneira simples . 
+    Quando um arquivo `.txt` com a formatação requerida é aplicado no programa , um arquivo 
+    `.json` é criado , e cada informação do `.txt` é adicionado a um objeto anônimo.
 
-    Este projeto foi feito para facilitar a formatação de arquivos .json que armazenam informações 
-    utilizando um arquivo .txt
-    Atualmente, o código recebe arqivos .txt e pega os 3 itens que estão separados por vírgula
-    e cria um objeto anônimo para cada linha, com as chaves de `nome`,`idade` e `id`.  
 
 
----
+## ⚒️ Tecnologias utilizadas
+- Sveltekit
+- Typescript
+- Git
 
-## 🔧 Tecnologias
 
-- Front : Svelte(aplicação moderna e leve)
-- Back : TypeScript(para aprimorar a segurança com tipagem de dados)
 
----
+## 🕹️ Funcionalidades principais
+- Captura exclusivamente arquivos .txt para a conversão
+- Torna disponível a opção de baixar o arquivo .json apenas quando a conversão é feita
+- responsividade para telas pequenas e grandes
 
-## ⚙️ Instalação
 
-1. Clone o repositório  
 
-   git clone https://github.com/Devs097518/json_conversor.git
-   cd json_conversor
-   npm install     
-   npm run dev 
+## 📥 Como rodar localmente 
+clonagem :\
+    git clone https://github.com/Devs097518/json_conversor.git
+    
+instalando dependências :\
+    cd json_conversor\
+    npm install   
 
----
+executar :\
+    npm run dev 
+
+
+
+
+## 🛰️ Deploy
+[visitar](https://json-conversor.vercel.app/)
+
+
+![imagem de ilustração](static/img_conversao.png)
+
+
+
+
+##  📜 melhorias futuras 
+- haver a opção de adicionar e remover atributos dos objetos
+
+
 
 ## 📄 Licença
 MIT © Dayvson
