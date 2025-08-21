@@ -17,6 +17,8 @@
 
 ## ⚙️ Instalação
 
+1. Clone o repositório  
+
    git clone https://github.com/Devs097518/json_conversor.git
    cd json_conversor
    npm install     
